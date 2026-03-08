@@ -859,11 +859,16 @@ button {
 }
 
 .cursor-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--text-primary);
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background-image: url('../img/edutec-icon-blue.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border-radius: 0;
     transform: translate(-50%, -50%);
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .cursor-outline {
@@ -889,7 +894,8 @@ button {
 
 /* Hover States for interactive elements */
 body.hovering .cursor-dot {
-    opacity: 0;
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.2);
 }
 
 body.hovering .cursor-outline {
