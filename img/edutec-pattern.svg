@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+    <!-- Edutec Molecule Pattern Element -->
+    <path stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" d="M100 40 L40 140 M100 40 L160 140 M40 140 L160 140" />
+    <circle cx="100" cy="40" r="24" fill="#ffffff" />
+    <circle cx="40" cy="140" r="24" fill="#ffffff" />
+    <circle cx="160" cy="140" r="24" fill="#ffffff" />
+</svg>

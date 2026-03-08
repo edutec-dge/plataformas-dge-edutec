@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice">
+    <!-- Cumbre Colors: Orange (#f47b20), Pink (#e81e62), Purple (#633b8a), Blue (#0084c8), Green (#00a651) -->
+    
+    <g opacity="0.04">
+        <!-- Subtle Mountains / Waves at the bottom -->
+        <path fill="#0084c8" d="M0,600 C320,500 420,700 720,600 C1020,500 1200,650 1440,550 L1440,800 L0,800 Z"/>
+        <path fill="#633b8a" d="M0,700 C200,600 500,750 800,650 C1100,550 1300,700 1440,600 L1440,800 L0,800 Z"/>
+    </g>
+    
+    <g opacity="0.05">
+        <!-- Scattered geometric shapes (Iconografía y actividades) -->
+        <!-- Pluses -->
+        <path stroke="#f47b20" stroke-width="8" stroke-linecap="round" d="M150,200 L180,200 M165,185 L165,215" />
+        <path stroke="#e81e62" stroke-width="6" stroke-linecap="round" d="M1100,100 L1120,100 M1110,90 L1110,110" />
+        
+        <!-- Circles -->
+        <circle cx="300" cy="400" r="15" fill="none" stroke="#00a651" stroke-width="6"/>
+        <circle cx="1200" cy="500" r="25" fill="none" stroke="#0084c8" stroke-width="8"/>
+        
+        <!-- Triangles / ZigZags -->
+        <path fill="none" stroke="#f47b20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M800,200 L820,170 L840,200 Z" />
+        <path fill="none" stroke="#633b8a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" d="M100,500 L120,480 L140,500 L160,480" />
+        
+        <!-- Floating dots -->
+        <circle cx="600" cy="150" r="8" fill="#e81e62" />
+        <circle cx="950" cy="350" r="12" fill="#00a651" />
+        <circle cx="1300" cy="250" r="6" fill="#f47b20" />
+        <circle cx="50" cy="100" r="10" fill="#0084c8" />
+        <circle cx="850" cy="700" r="15" fill="#f47b20" />
+    </g>
+</svg>

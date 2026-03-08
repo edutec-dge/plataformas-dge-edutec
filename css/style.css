@@ -1,0 +1,841 @@
+/* =========================================
+   Variables Globales y Configuración Base
+   ========================================= */
+:root {
+    /* Identidad Corporativa */
+    --dge-blue: #122c91;
+    --dge-blue-dark: #0b1c60;
+    --edutec-gold: #ceaa71;
+    --edutec-gold-hover: #dfbc83;
+
+    /* Superficies de Tarjetas */
+    --card-portal-bg: #faeedb;
+    --card-cumbre-bg: #e5edff;
+    --card-aulas-bg: #e2f7f9;
+    --card-matific-bg: #fdf5df;
+    --card-eduten-bg: #e2fbf4;
+    --card-flexflix-bg: #efe8fa;
+
+    /* Decoraciones Tarjetas */
+    --dec-portal: #cfa864;
+    --dec-cumbre: #a8c1f7;
+    --dec-aulas: #a1e8f0;
+    --dec-matific: #f5d38a;
+    --dec-eduten: #9deecc;
+    --dec-flexflix: #cdb2f0;
+
+    /* General */
+    --bg-main: #f0f4f8;
+    --surface: #ffffff;
+    --text-primary: #17213b;
+    --text-secondary: #5a6682;
+    --text-link: #122c91;
+
+    --shadow-panel: 0 12px 32px rgba(11, 28, 96, 0.08);
+    --shadow-card: 0 6px 16px rgba(11, 28, 96, 0.06);
+    --shadow-hover: 0 16px 24px rgba(11, 28, 96, 0.12);
+
+    --radius-panel: 24px;
+    --radius-card: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-main);
+    background-image: url('../img/cumbre-bg.svg');
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    color: var(--text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+@media (min-width: 2500px) {
+    .container {
+        max-width: 1800px;
+    }
+}
+
+/* =========================================
+   HERO INSTITUCIONAL
+   ========================================= */
+.edutec-palette-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, #DF6A07, #D41157, #8917CE, #006EB2, #00A366);
+    z-index: 100;
+}
+
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--dge-blue-dark) 0%, var(--dge-blue) 100%);
+    color: #ffffff;
+    padding: 32px 0 100px;
+    overflow: hidden;
+}
+
+.hero-bg-molecule {
+    position: absolute;
+    top: 0;
+    /* Changed from -40px */
+    right: 0;
+    /* Changed from -40px */
+    width: 300px;
+    height: 300px;
+    background-image: url('../img/edutec-icon-white.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Montañas mendocinas */
+.hero-bg-mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background-image: url('../img/background-mountains.svg');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.hero-header {
+    display: flex;
+    justify-content: center;
+    /* Balanced */
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-logos {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero-logo-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    padding: 10px 24px;
+    backdrop-filter: blur(8px);
+}
+
+.hero-logo-box .logo-image {
+    height: 54px;
+    width: auto;
+    object-fit: contain;
+}
+
+.hero-logo-box .logo-text {
+    font-size: 0.85rem;
+    line-height: 1.25;
+    font-weight: 500;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    /* Center for balance */
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 auto 16px;
+    max-width: 900px;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto 32px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    /* Center actions */
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--edutec-gold);
+    color: var(--text-primary);
+    box-shadow: 0 4px 12px rgba(206, 170, 113, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--edutec-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(206, 170, 113, 0.4);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: #ffffff;
+}
+
+/* =========================================
+   CONTENIDO PRINCIPAL (Paneles Blancos)
+   ========================================= */
+.main-content {
+    margin-top: -64px;
+    position: relative;
+    z-index: 10;
+    padding-bottom: 64px;
+}
+
+.section-panel {
+    background-color: var(--surface);
+    border-radius: var(--radius-panel);
+    padding: 40px;
+    box-shadow: var(--shadow-panel);
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Nodos Luminosos EDUTEC (Watermarks) */
+.edutec-node {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.12;
+    /* Brillo sutil */
+    pointer-events: none;
+    z-index: 0;
+}
+
+.node-orange {
+    background-color: #DF6A07;
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    right: -100px;
+}
+
+.node-pink {
+    background-color: #D41157;
+    width: 300px;
+    height: 300px;
+    bottom: -50px;
+    left: -50px;
+}
+
+.node-purple {
+    background-color: #8917CE;
+    width: 450px;
+    height: 450px;
+    top: -150px;
+    left: -100px;
+}
+
+.node-blue {
+    background-color: #006EB2;
+    width: 350px;
+    height: 350px;
+    bottom: -100px;
+    right: 20%;
+}
+
+.node-green {
+    background-color: #00A366;
+    width: 400px;
+    height: 400px;
+    top: 20%;
+    right: -150px;
+}
+
+.watermark-tech-1,
+.watermark-tech-2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.03;
+    /* Very subtle */
+    pointer-events: none;
+    z-index: 0;
+}
+
+.watermark-tech-1 {
+    top: -50px;
+    right: -50px;
+    background-image: url('../img/watermark-tech-1.png');
+    transform: rotate(15deg);
+}
+
+.watermark-tech-2 {
+    bottom: -50px;
+    left: -50px;
+    background-image: url('../img/watermark-tech-2.png');
+    transform: rotate(-10deg);
+}
+
+/* Nuevas Marcas de Agua (Trazos Tech) - Cumbre Palette */
+.tech-watermark {
+    position: fixed;
+    /* Fixed for ultra-wide / zoom-out stability */
+    width: 150px;
+    height: 150px;
+    opacity: 0.25;
+    /* Increased for visibility */
+    pointer-events: none;
+    z-index: 0;
+    /* Move above body background but behind sections if necessary */
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.watermark-laptop {
+    top: 15%;
+    left: 8%;
+    background-color: #DF6A07;
+    -webkit-mask-image: url('../img/icon-laptop.svg');
+    mask-image: url('../img/icon-laptop.svg');
+    transform: rotate(-10deg);
+}
+
+.watermark-signal {
+    top: 35%;
+    right: 12%;
+    background-color: #006EB2;
+    -webkit-mask-image: url('../img/icon-signal.svg');
+    mask-image: url('../img/icon-signal.svg');
+    transform: rotate(15deg);
+}
+
+.watermark-cloud {
+    bottom: 25%;
+    left: 15%;
+    background-color: #D41157;
+    -webkit-mask-image: url('../img/icon-cloud.svg');
+    mask-image: url('../img/icon-cloud.svg');
+    transform: rotate(-5deg);
+}
+
+.watermark-code {
+    top: 65%;
+    left: 80%;
+    background-color: #00A366;
+    -webkit-mask-image: url('../img/icon-code-trace.svg');
+    mask-image: url('../img/icon-code-trace.svg');
+    transform: rotate(25deg);
+}
+
+.watermark-backpack {
+    bottom: 10%;
+    right: 5%;
+    background-color: #8917CE;
+    -webkit-mask-image: url('../img/icon-backpack.svg');
+    mask-image: url('../img/icon-backpack.svg');
+    transform: rotate(-20deg);
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--dge-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* =========================================
+   TARJETAS
+   ========================================= */
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px;
+    border-radius: var(--radius-card);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text-primary);
+
+    /* Glassmorphism Effect */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    /* Reveal Animation entry */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Decoración geométrica restaurada */
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    border-radius: 30px;
+    transform: rotate(24deg);
+    opacity: 0.25;
+    transition: transform 0.4s ease;
+    z-index: 1;
+    /* Above the Glass background but below content if necessary */
+}
+
+.card:hover::after {
+    transform: rotate(15deg) scale(1.2);
+    opacity: 0.4;
+}
+
+/* Animations Reveal */
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    /* Center for balance */
+    margin: 0 auto;
+    animation: fadeInScale 1s ease-out;
+}
+
+.card:hover::after {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.card-badge {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--dge-blue);
+    background: rgba(255, 255, 255, 0.6);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.card-logo {
+    height: 110px;
+    /* Increased from 80px */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    margin-bottom: 24px;
+    display: block;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 32px;
+    flex-grow: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.card-link {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--text-link);
+    display: inline-flex;
+    position: relative;
+    z-index: 2;
+}
+
+/* Asignación de colores por plataforma */
+.card-portal {
+    background-color: var(--card-portal-bg);
+}
+
+.card-portal::after {
+    background-color: var(--dec-portal);
+}
+
+.card-cumbre {
+    background-color: var(--card-cumbre-bg);
+}
+
+.card-cumbre::after {
+    background-color: var(--dec-cumbre);
+}
+
+.card-aulas {
+    background-color: var(--card-aulas-bg);
+}
+
+.card-aulas::after {
+    background-color: var(--dec-aulas);
+}
+
+.card-matific {
+    background-color: var(--card-matific-bg);
+}
+
+.card-matific::after {
+    background-color: var(--dec-matific);
+}
+
+.card-matific .card-logo,
+.card-eduten .card-logo {
+    mix-blend-mode: multiply;
+    filter: contrast(1.1);
+}
+
+.card-matific .card-logo {
+    height: 130px;
+    /* Matific logo needs more height presence */
+    transform: scale(1.15);
+}
+
+.card-eduten {
+    background-color: var(--card-eduten-bg);
+}
+
+.card-eduten::after {
+    background-color: var(--dec-eduten);
+}
+
+.card-flexflix {
+    background-color: var(--card-flexflix-bg);
+}
+
+.card-flexflix::after {
+    background-color: var(--dec-flexflix);
+}
+
+/* =========================================
+   PIE DE PÁGINA (Footer Panel)
+   ========================================= */
+.footer-panel {
+    background-color: var(--surface);
+    border-radius: var(--radius-panel);
+    box-shadow: var(--shadow-panel);
+    display: flex;
+    overflow: hidden;
+    /* Encapsulate the image within the border radius */
+    margin-bottom: 24px;
+}
+
+.footer-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* =========================================
+   MODAL AULAS EDUTEC
+   ========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(11, 28, 96, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--surface);
+    background-image: url('../img/edutec-icon-blue.png');
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: -50px -50px;
+    /* Soft watermark appearance */
+    background-blend-mode: screen;
+    border-radius: var(--radius-panel);
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    /* Ensure watermark doesn't spill out */
+}
+
+/* Ensure modal contents sit above the watermark */
+.modal-content>* {
+    position: relative;
+    z-index: 2;
+}
+
+/* Watermark overlay to reduce opacity */
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.94);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.modal-header {
+    padding: 32px 32px 24px;
+}
+
+.modal-header h3 {
+    color: var(--dge-blue);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.modal-header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    /* Larger hit area */
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s, color 0.2s;
+    z-index: 10;
+    /* Ensure on top */
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    background-color: #e2e8f0;
+    color: var(--text-primary);
+}
+
+.modal-close svg {
+    width: 20px;
+    height: 20px;
+}
+
+.modal-body {
+    padding: 0 32px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.modal-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: var(--dge-blue);
+    color: #ffffff;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+
+.modal-link:hover {
+    background-color: var(--dge-blue-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 28, 96, 0.3);
+}
+
+/* =========================================
+   RESPONSIVO
+   ========================================= */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-logos {
+        flex-direction: column;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .section-panel {
+        padding: 24px;
+    }
+
+    .footer-panel {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+}

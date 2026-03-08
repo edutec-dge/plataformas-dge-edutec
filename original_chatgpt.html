@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plataformas DGE | EDUTEC</title>
+  <style>
+    :root{
+      --azul-dge:#0b2a9d;
+      --azul-hero:#1c39c7;
+      --celeste:#dff3ff;
+      --azul-claro:#dde7ff;
+      --dorado:#c8a977;
+      --dorado-soft:#f5e8d2;
+      --violeta:#ece6ff;
+      --texto:#1d2740;
+      --muted:#6b7692;
+      --radius:20px;
+      --shadow:0 12px 28px rgba(0,0,0,.10);
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family:Segoe UI, Arial, sans-serif;
+      color:var(--texto);
+      background:#f2f5ff;
+    }
+
+    .hero{
+      background:linear-gradient(135deg,var(--azul-dge),var(--azul-hero));
+      color:white;
+      padding:32px 30px 110px 30px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:auto auto 0 0;
+      width:100%;
+      height:150px;
+      background:
+        radial-gradient(circle at 12% 100%, rgba(255,255,255,.08) 0 3px, transparent 3px 15px),
+        radial-gradient(circle at 16% 92%, rgba(255,255,255,.08) 0 3px, transparent 3px 15px),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,0));
+      pointer-events:none;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .hero-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+      flex-wrap:wrap;
+    }
+
+    .hero-logos{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .hero-logo-box{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:14px;
+      padding:10px 16px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .hero-logo-box img{
+      height:34px;
+      width:auto;
+      display:block;
+      object-fit:contain;
+    }
+
+    .hero-logo-text{
+      font-size:13px;
+      line-height:1.25;
+      font-weight:600;
+    }
+
+    .hero-note{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .hero h1{
+      font-size:52px;
+      line-height:1.03;
+      margin:0 0 12px 0;
+      max-width:700px;
+    }
+
+    .hero p{
+      font-size:18px;
+      max-width:690px;
+      line-height:1.5;
+      margin:0 0 24px 0;
+    }
+
+    .buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 18px;
+      border-radius:12px;
+      font-weight:700;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .btn-primary{
+      background:var(--dorado);
+      color:white;
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.15);
+      color:white;
+      border:1px solid rgba(255,255,255,.25);
+    }
+
+    .mountains{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:-1px;
+      width:100%;
+      height:120px;
+      display:block;
+    }
+
+    .main{
+      max-width:1200px;
+      margin:-64px auto 40px auto;
+      padding:0 20px;
+      position:relative;
+      z-index:2;
+    }
+
+    .section{
+      background:white;
+      padding:28px;
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      margin-bottom:22px;
+    }
+
+    .section-title{
+      font-size:18px;
+      font-weight:800;
+      margin-bottom:18px;
+      color:var(--azul-dge);
+      text-transform:uppercase;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .card{
+      display:block;
+      padding:22px;
+      border-radius:20px;
+      text-decoration:none;
+      color:inherit;
+      min-height:260px;
+      box-shadow:0 6px 16px rgba(0,0,0,.06);
+      transition:.2s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card:hover{
+      transform:translateY(-3px);
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      right:-28px;
+      bottom:-28px;
+      width:96px;
+      height:96px;
+      border-radius:22px;
+      opacity:.15;
+      transform:rotate(24deg);
+    }
+
+    .card img.logo{
+      max-width:170px;
+      max-height:56px;
+      width:auto;
+      height:auto;
+      display:block;
+      margin:10px 0 16px 0;
+      object-fit:contain;
+    }
+
+    .card-portal{
+      background:var(--dorado-soft);
+    }
+    .card-portal::after{
+      background:var(--dorado);
+    }
+
+    .card-cumbre{
+      background:var(--azul-claro);
+    }
+    .card-cumbre::after{
+      background:#8fb8ff;
+    }
+
+    .card-aulas{
+      background:var(--celeste);
+    }
+    .card-aulas::after{
+      background:#61b8ff;
+    }
+
+    .card-matific{
+      background:#fff4e5;
+    }
+    .card-matific::after{
+      background:#f39a32;
+    }
+
+    .card-eduten{
+      background:#e6fbfb;
+    }
+    .card-eduten::after{
+      background:#19b2ae;
+    }
+
+    .card-flexflix{
+      background:var(--violeta);
+    }
+    .card-flexflix::after{
+      background:#8c45ff;
+    }
+
+    .badge{
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:8px;
+      color:var(--azul-dge);
+      display:inline-block;
+      background:rgba(255,255,255,.55);
+      padding:6px 10px;
+      border-radius:999px;
+    }
+
+    .card h3{
+      margin:6px 0 8px 0;
+      font-size:24px;
+    }
+
+    .card p{
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.5;
+      margin:0 0 18px 0;
+    }
+
+    .card .link,
+    .card button.link{
+      color:#001cb8;
+      font-weight:800;
+      font-size:13px;
+      text-decoration:none;
+      background:none;
+      border:none;
+      padding:0;
+      cursor:pointer;
+      font-family:inherit;
+    }
+
+    .footer{
+      font-size:14px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+      padding-top:16px;
+      border-top:1px solid #e5e8f5;
+    }
+
+    .footer a{
+      color:var(--azul-dge);
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.45);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:50;
+      padding:20px;
+    }
+
+    .modal.open{
+      display:flex;
+    }
+
+    .modal-box{
+      background:white;
+      padding:24px;
+      border-radius:20px;
+      width:100%;
+      max-width:460px;
+      box-shadow:0 18px 42px rgba(0,0,0,.18);
+      position:relative;
+    }
+
+    .modal-close{
+      position:absolute;
+      top:12px;
+      right:12px;
+      width:36px;
+      height:36px;
+      border:none;
+      border-radius:10px;
+      background:#eef2ff;
+      color:var(--azul-dge);
+      font-size:20px;
+      cursor:pointer;
+    }
+
+    .modal-box h3{
+      margin:0 0 10px 0;
+      color:var(--azul-dge);
+    }
+
+    .modal-box p{
+      margin:0 0 16px 0;
+      color:var(--muted);
+      line-height:1.5;
+      font-size:14px;
+    }
+
+    .modal-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    .modal-link{
+      display:block;
+      background:linear-gradient(135deg,var(--azul-dge),var(--azul-hero));
+      color:white;
+      text-align:center;
+      padding:12px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    @media (max-width:900px){
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .hero{
+        padding-bottom:90px;
+      }
+
+      .footer{
+        flex-direction:column;
+      }
+
+      .modal-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-header">
+        <div class="hero-logos">
+          <div class="hero-logo-box">
+            <img src="img/dge-header.png" alt="DGE">
+            <div class="hero-logo-text">Dirección General de Escuelas<br>Gobierno de Mendoza</div>
+          </div>
+
+          <div class="hero-logo-box">
+            <img src="img/edutec-header.png" alt="EDUTEC">
+            <div class="hero-logo-text">Programa EDUTEC<br>Educación digital y tecnologías educativas conectadas</div>
+          </div>
+        </div>
+
+        <div class="hero-note">Inicio institucional</div>
+      </div>
+
+      <h1>Plataformas DGE | EDUTEC</h1>
+
+      <p>
+        Acceso directo a las herramientas y entornos de aprendizaje del ecosistema educativo digital de Mendoza.
+        Primero se destaca el portal oficial y luego se organizan las plataformas del Gobierno de Mendoza y las
+        plataformas integradas.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://www.mendoza.edu.ar/" target="_blank" rel="noopener noreferrer">Portal oficial DGE</a>
+        <a class="btn btn-secondary" href="#plataformas">Explorar plataformas</a>
+      </div>
+    </div>
+
+    <svg class="mountains" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,120 L0,88 C65,82 96,60 146,54 C199,48 240,65 292,73 C344,81 390,75 448,53 C505,31 548,25 612,42 C681,60 711,88 770,90 C838,92 876,60 929,41 C984,22 1041,26 1099,45 C1145,60 1171,79 1200,92 L1200,120 Z" fill="rgba(255,255,255,.45)"/>
+      <path d="M0,120 L0,98 C79,86 127,78 185,61 C261,39 314,28 391,44 C445,55 491,84 548,87 C608,91 653,58 705,46 C783,28 851,39 914,58 C969,74 1010,87 1067,82 C1117,78 1157,64 1200,56 L1200,120 Z" fill="rgba(255,255,255,.28)"/>
+    </svg>
+  </section>
+
+  <div class="main">
+    <div class="section">
+      <div class="section-title">Acceso principal</div>
+
+      <div class="cards" id="plataformas">
+        <a class="card card-portal" href="https://www.mendoza.edu.ar/" target="_blank" rel="noopener noreferrer">
+          <div class="badge">Sitio institucional</div>
+          <img class="logo" src="img/portal-dge.png" alt="Portal DGE">
+          <h3>Portal DGE</h3>
+          <p>Servicios, información institucional y acceso al ecosistema digital educativo oficial de la Dirección General de Escuelas.</p>
+          <span class="link">Ingresar al sitio oficial</span>
+        </a>
+
+        <a class="card card-cumbre" href="https://cumbre.mendoza.edu.ar/" target="_blank" rel="noopener noreferrer">
+          <div class="badge">Plataforma DGE</div>
+          <img class="logo" src="img/cumbre.png" alt="Cumbre">
+          <h3>Cumbre</h3>
+          <p>Plataforma provincial para el aprendizaje del inglés, con identidad propia y recursos interactivos para estudiantes y docentes.</p>
+          <span class="link">Abrir Cumbre</span>
+        </a>
+
+        <a class="card card-aulas" href="#" id="openAulas">
+          <div class="badge">Entorno educativo</div>
+          <img class="logo" src="img/aulas-edutec.png" alt="Aulas EDUTEC">
+          <h3>Aulas EDUTEC</h3>
+          <p>Ingreso unificado a los entornos virtuales de aprendizaje según modalidad, manteniendo una sola puerta de entrada para elegir el aula correcta.</p>
+          <span class="link">Elegir Aula 1, 2, 3 o 4</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Plataformas educativas integradas</div>
+
+      <div class="cards">
+        <a class="card card-matific" href="https://www.matific.com/ar/es-ar/home/" target="_blank" rel="noopener noreferrer">
+          <div class="badge">Matemática</div>
+          <img class="logo" src="img/matific.png" alt="Matific">
+          <h3>Matific</h3>
+          <p>Aprendizaje de matemática basado en juegos, actividades interactivas y propuestas pensadas para el trabajo con estudiantes.</p>
+          <span class="link">Abrir Matific</span>
+        </a>
+
+        <a class="card card-eduten" href="https://eduten.com/" target="_blank" rel="noopener noreferrer">
+          <div class="badge">Práctica guiada</div>
+          <img class="logo" src="img/eduten.png" alt="Eduten">
+          <h3>Eduten</h3>
+          <p>Plataforma adaptativa de matemática con seguimiento del progreso y una identidad visual tecnológica, limpia y ordenada.</p>
+          <span class="link">Abrir Eduten</span>
+        </a>
+
+        <a class="card card-flexflix" href="https://www.flexflix.ai/" target="_blank" rel="noopener noreferrer">
+          <div class="badge">Mendoza Aumentada</div>
+          <img class="logo" src="img/flexflix.png" alt="FlexFlix">
+          <h3>FlexFlix</h3>
+          <p>Biblioteca audiovisual educativa del programa Mendoza Aumentada, con foco en experiencias de aprendizaje digital e innovación.</p>
+          <span class="link">Abrir FlexFlix</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="footer">
+        <div>
+          <strong>Dirección General de Escuelas · Gobierno de Mendoza</strong><br>
+          Programa EDUTEC · Educación Digital y Tecnologías Educativas Conectadas<br>
+          Av. Peltier 351 · Mendoza · Argentina
+        </div>
+
+        <div>
+          <a href="https://www.mendoza.edu.ar/" target="_blank" rel="noopener noreferrer">www.mendoza.edu.ar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modalAulas">
+    <div class="modal-box">
+      <button class="modal-close" id="closeAulas" aria-label="Cerrar">×</button>
+      <h3>Seleccionar Aula EDUTEC</h3>
+      <p>Elegí el aula correspondiente según la modalidad.</p>
+
+      <div class="modal-grid">
+        <a class="modal-link" href="https://escueladigital1.mendoza.edu.ar/" target="_blank" rel="noopener noreferrer">Aula 1</a>
+        <a class="modal-link" href="https://aulasedutec2.mendoza.edu.ar/" target="_blank" rel="noopener noreferrer">Aula 2</a>
+        <a class="modal-link" href="https://escueladigital3.mendoza.edu.ar/" target="_blank" rel="noopener noreferrer">Aula 3</a>
+        <a class="modal-link" href="https://escueladigital4.mendoza.edu.ar/" target="_blank" rel="noopener noreferrer">Aula 4</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const openAulas = document.getElementById('openAulas');
+    const closeAulas = document.getElementById('closeAulas');
+    const modalAulas = document.getElementById('modalAulas');
+
+    openAulas.addEventListener('click', function(e){
+      e.preventDefault();
+      modalAulas.classList.add('open');
+    });
+
+    closeAulas.addEventListener('click', function(){
+      modalAulas.classList.remove('open');
+    });
+
+    modalAulas.addEventListener('click', function(e){
+      if(e.target === modalAulas){
+        modalAulas.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
