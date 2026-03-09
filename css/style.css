@@ -59,8 +59,6 @@ body {
     color: var(--text-primary);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    cursor: none;
-    /* Hide default cursor */
 }
 
 a {
@@ -441,6 +439,7 @@ button {
     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
     position: relative;
     overflow: hidden;
+    /* Volver a ocultar para asomo elegante e interno */
     text-decoration: none;
     color: var(--text-primary);
 
@@ -491,6 +490,20 @@ button {
 .card:hover::after {
     transform: rotate(15deg) scale(1.2);
     opacity: 0.4;
+}
+
+/* =========================================
+   ANIMACIONES DE ANIMALES (INYECCIÓN DINÁMICA)
+   ========================================= */
+.card h1,
+.card h2,
+.card h3,
+.card p,
+.card .card-badge,
+.card .card-logo,
+.card .card-link {
+    position: relative;
+    z-index: 10;
 }
 
 /* Animations Reveal */
@@ -843,70 +856,50 @@ button {
 }
 
 /* =========================================
-   CURSOR PERSONALIZADO & GLOW SPOTLIGHT
+   GUARDA DE ANIMALES CUMBRE
    ========================================= */
-.cursor-dot,
-.cursor-outline,
+.animal-guarda {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 1000px;
+    /* Un poco más cerrado para que no se separen tanto */
+    margin: 40px auto 0;
+    /* Espacio superior respecto a las tarjetas */
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+    pointer-events: none;
+    /* No bloquear clics por accidente */
+}
+
+.animal-item {
+    height: 90px;
+    /* Altura uniforme para todos */
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+    /* Sombreado ligerísimo para que destaquen limpio */
+}
+
+/* =========================================
+   GLOW SPOTLIGHT (Fondo interactivo)
+   ========================================= */
 .cursor-glow {
     position: fixed;
     top: 0;
     left: 0;
     pointer-events: none;
     /* VERY IMPORTANT: DO NOT BLOCK CLICKS */
-    z-index: 9999;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.cursor-dot {
-    width: 32px;
-    height: 32px;
-    background-image: url('../img/edutec-icon-blue.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    border-radius: 0;
-    transform: translate(-50%, -50%);
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.cursor-outline {
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(23, 33, 59, 0.4);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
-}
-
-.cursor-glow {
     width: 400px;
     height: 400px;
     background: radial-gradient(circle, rgba(137, 23, 206, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    z-index: 0;
-    /* Below cards but above background */
+    z-index: 9999;
+    /* Above cards and background */
     mix-blend-mode: multiply;
-    transition: background 0.4s ease;
-}
-
-/* Hover States for interactive elements */
-body.hovering .cursor-dot {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.2);
-}
-
-body.hovering .cursor-outline {
-    width: 60px;
-    height: 60px;
-    background-color: rgba(223, 106, 7, 0.1);
-    border-color: rgba(223, 106, 7, 0.5);
-}
-
-a,
-button {
-    cursor: none;
-    /* Hide default cursor on interactive items too */
+    transition: background 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
 }
